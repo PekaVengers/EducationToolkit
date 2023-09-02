@@ -1,5 +1,10 @@
+import {NavLink} from "react-router-dom";
+
 export default function Navbar() {
   return (
-    <h1>This is Navbar</h1>
+    <nav>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/pdfsummary">Pdf summary</NavLink>
+    </nav>
   );
 }
