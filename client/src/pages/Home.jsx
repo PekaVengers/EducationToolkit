@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import kids from "../assets/images/kids.png";
 
 export default function Home() {
@@ -14,10 +15,12 @@ export default function Home() {
               <div className="circle absolute left-4  w-[40px] h-[40px] rounded-[50%] bg-white"></div>
               <span className="ml-[1rem] text-white text-[2rem]">Pdf summariser</span>
             </button>
-            <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] w-[42%] relative">
+           <Link to="/videosummary">
+           <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] w-[42%] relative">
               <div className="circle absolute left-4 w-[40px] h-[40px] rounded-[50%] bg-white"></div>
               <span className="ml-[2.5rem] text-white text-[2rem]">Video Summariser</span>
             </button>
+           </Link>
             <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] w-[42%] relative">
               <div className="circle absolute left-4 w-[40px] h-[40px] rounded-[50%] bg-white"></div>
               <span className="ml-[1rem] text-white text-[2rem]">Peer Review</span>
