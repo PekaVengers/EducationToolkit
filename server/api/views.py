@@ -9,6 +9,8 @@ from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.llms import HuggingFaceHub
+from youtube_transcript_api import YouTubeTranscriptApi
+import openai
 
 conversation = None
 
@@ -56,6 +58,36 @@ def handle_user_input(user_input):
   print(response['answer'])
   return response
 
+def get_youtube_transcript(video_id):
+  try:
+    transcript_chunks = YouTubeTranscriptApi.get_transcript(video_id)
+    transcript = ""
+    for t in transcript_chunks:
+      transcript += t.get("text", "")
+    return transcript
+  except Exception as e:
+    print(f"An error occurred: {str(e)}")
+    return None
+
+def get_summary(transcript):
+  response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",  
+    messages=[
+      {
+        "role": "system",
+        "content": "You are going to provide brief explanation/summary of the video provided by the user."
+      },
+      {
+        "role":"user",
+        "content":transcript
+      }
+
+    ],
+    max_tokens=500
+)
+  generated_text = response['choices'][0]["message"]['content']
+  return generated_text
+
 class PDFSummary(APIView):
   def get(self, request):
     return Response({"success": "pdf uploaded successfully"})
@@ -78,3 +110,16 @@ class AnswerQuestions(APIView):
     question = request.data.get('question')
     response = handle_user_input(question)
     return Response({"history": response["chat_history"]})
+
+class VideoSummary(APIView):
+  def post(self, request):
+    try:  
+      link = request.data.get('video-link')
+      video_id = link.split("?v=")[1]
+      transcript = get_youtube_transcript(video_id)
+      summary = get_summary(transcript)
+      print("Summary:", summary)
+      return Response({"summary": summary})
+    except Exception as e:
+      print(e)
+      return Response({"error": "Invalid video Id"})
