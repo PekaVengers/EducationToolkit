@@ -36,14 +36,14 @@ export default function StudyBuddy() {
                 type="text"
                 name="help"
                 required
-                placeholder="What help do you need?"
+                placeholder="How can I assist you?"
                 className="placeholder:text-wheat-800 p-2 pl-8  bg-primary w-[100%] text-[2rem]  border-none rounded-[1rem] mb-8"
               />
               <textarea
                 type="text"
                 name="answer"
                 required
-                placeholder="Provide your answer.."
+                placeholder="Elaborate your query"
                 className="placeholder:text-wheat-800 p-2 pl-8  bg-primary w-[100%] text-[2rem]  border-none rounded-[1rem] mb-8"
               ></textarea>
               <button
