@@ -58,22 +58,24 @@ export default function PDFSummarizer() {
       </div>
       ) : (
         <div className="rightContent w-[70%] bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col  rounded-[2rem]">
-          <h1 className="text-[5rem]">Video Summariser</h1>
+          <h1 className="text-[5rem]">PDF Summariser</h1>
           <h2 className="text-tertiary text-[3rem] mb-8">
-            Paste the URL of any youtube video and get it summarised.
+          Upload your PDF and get all your queries regarding that PDF answered by our AI Model.
           </h2>
-          <Form method="post" encType="multipart/form-data" className="form">
+          <Form method="post" encType="multipart/form-data" className="form  flex justify-between items-center" >
+            <div className="selectFile">
             <input
               type="file"
               name="source-file"
               accept="application/pdf"
               required
-              className="placeholder:text-white-700 p-2 pl-8  bg-primary w-[100%] text-[2rem]  border-none rounded-[1rem] mb-8"
+              className="text-[2rem] "
             />
+            </div>
             <button
               disabled={navigation.state === "submitting"}
               type="submit"
-              className="text-primary p-2 pl-8 hover:bg-primary hover:text-white  bg-white text-[2rem]  border-none rounded-[1rem]"
+              className="text-primary px-8 py-2 hover:bg-primary hover:text-white  bg-white text-[2rem]  border-none rounded-[1rem]"
             >
               {
                 navigation.state === "submitting"
