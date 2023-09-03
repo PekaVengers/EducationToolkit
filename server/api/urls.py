@@ -6,4 +6,5 @@ urlpatterns = [
   path('pdf-summary/', views.PDFSummary.as_view(), name='pdf-summary'),
   path('ask-question/', views.AnswerQuestions.as_view(), name='answer-questions'),
   path('video-summary/', views.VideoSummary.as_view(), name='video-summary'),
+  path('study-buddy/', views.StudyBuddy.as_view(), name='study-buddy'),
 ]

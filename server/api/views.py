@@ -69,13 +69,13 @@ def get_youtube_transcript(video_id):
     print(f"An error occurred: {str(e)}")
     return None
 
-def get_summary(transcript):
+def get_summary(transcript, system="You are going to provide brief explanation/summary of the video provided by the user."):
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",  
     messages=[
       {
         "role": "system",
-        "content": "You are going to provide brief explanation/summary of the video provided by the user."
+        "content": system
       },
       {
         "role":"user",
@@ -120,6 +120,17 @@ class VideoSummary(APIView):
       summary = get_summary(transcript)
       print("Summary:", summary)
       return Response({"summary": summary})
+    except Exception as e:
+      print(e)
+      return Response({"error": "Invalid video Id"})
+
+class StudyBuddy(APIView):
+  def post(self, request):
+    try:  
+      help_text = request.data.get('help')
+      answer = request.data.get('answer')
+      review = get_summary(answer, help_text)
+      return Response({"review": review})
     except Exception as e:
       print(e)
       return Response({"error": "Invalid video Id"})

@@ -18,10 +18,10 @@ export default function StudyBuddy() {
       <div className="right w-[75vw] flex flex-col justify-center items-center ">
         {actionData ? (
           <>
-            <h1 className="text-[5rem]">Summary</h1>
+            <h1 className="text-[5rem]">Review</h1>
             <div className="rightContent w-[70%] h-[70%]  bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col items-center justify-center  rounded-[2rem]">
               <div className="content text-white bg-primary px-[3rem] py-[2rem] text-[2rem] rounded-[2rem]  overflow-y-auto">
-                {actionData.summary}
+                {actionData.review}
               </div>
             </div>
           </>
