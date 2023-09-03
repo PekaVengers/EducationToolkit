@@ -7,8 +7,8 @@ import VideoSummarizer, {action as videoSummaryAction} from "./pages/VideoSummar
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
-    <Route action={pdfSummaryAction} path="/pdfsummary" element={<PDFSummarizer />} />
-    <Route action={videoSummaryAction} path="/video-summary" element={<VideoSummarizer />} />
+    <Route action={pdfSummaryAction} path="pdfsummary" element={<PDFSummarizer />} />
+    <Route action={videoSummaryAction} path="video-summary" element={<VideoSummarizer />} />
   </Route>
 ))
 
