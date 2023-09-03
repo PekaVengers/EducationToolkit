@@ -29,7 +29,7 @@ export default function StudyBuddy() {
           <div className="rightContent w-[70%] bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col  rounded-[2rem]">
             <h1 className="text-[5rem]">Study Buddy</h1>
             <h2 className="text-tertiary text-[3rem] mb-8">
-              Get Your Assignments Reviewed
+              Get Help from your Buddy
             </h2>
             <Form method="post" encType="multipart/form-data" className="form">
               <input
