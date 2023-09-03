@@ -41,7 +41,7 @@ export default function PDFSummarizer() {
     <div className="videoContainer flex flex-1 bg-secondary">
       <Sidebar />
       <div className="right w-[75vw] flex flex-col justify-center items-center ">
-        {!actionData ? (
+        {actionData ? (
           <div className="container  w-[80%] flex flex-col ">
             <form className="flex  w-[100%] mb-[4rem]">
               <input
@@ -59,47 +59,54 @@ export default function PDFSummarizer() {
                 Ask
               </button>
             </form>
-            <div className="mb-[1rem] ">
-              <span className="text-[2rem] bg-primary rounded px-2 mr-2 text-white">User: </span>
-              <span className="text-[2rem]">This is a sample question which I asked from the artificial intelligence Model and now it's going to provide me with some response</span>
+            {
+              chatHistory?.map((chat, i) => {
+                return i % 2 == 0 ? (
+                  <div key={i} className="mb-[1rem] ">
+                    <span className="text-[2rem] bg-primary rounded px-2 mr-2 text-white">User: </span>
+                    <span className="text-[2rem]">This is a sample question which I asked from the artificial intelligence Model and now it's going to provide me with some response</span>
+                  </div>
+                ) : (
+                  <div key={i}>
+                    <span className="text-[2rem] bg-black rounded px-2 mr-2 text-white">Bot: </span>
+                    <span className="text-[2rem]">This is a sample answer</span>
+                  </div>
+                );
+              })
+            }
             </div>
-            <div >
-              <span className="text-[2rem] bg-black rounded px-2 mr-2 text-white">Bot: </span>
-              <span className="text-[2rem]">This is a sample answer</span>
-            </div>
-          </div>
-        ) : (
-          <div className="rightContent w-[70%] bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col  rounded-[2rem]">
-            <h1 className="text-[5rem]">PDF Summariser</h1>
-            <h2 className="text-tertiary text-[3rem] mb-8">
-              Upload your PDF and get all your queries regarding that PDF
-              answered by our AI Model.
-            </h2>
-            <Form
-              method="post"
-              encType="multipart/form-data"
-              className="form  flex justify-between items-center"
-            >
-              <div className="selectFile">
-                <input
-                  type="file"
-                  name="source-file"
-                  accept="application/pdf"
-                  required
-                  className="text-[2rem] "
-                />
-              </div>
-              <button
-                disabled={navigation.state === "submitting"}
-                type="submit"
-                className="text-primary px-8 py-2 hover:bg-primary hover:text-white  bg-white text-[2rem]  border-none rounded-[1rem]"
+            ) : (
+            <div className="rightContent w-[70%] bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col  rounded-[2rem]">
+              <h1 className="text-[5rem]">PDF Analyser</h1>
+              <h2 className="text-tertiary text-[3rem] mb-8">
+                Upload your PDF and get all your queries regarding that PDF
+                answered by our AI Model.
+              </h2>
+              <Form
+                method="post"
+                encType="multipart/form-data"
+                className="form  flex justify-between items-center"
               >
-                {navigation.state === "submitting" ? "Processing..." : "Submit"}
-              </button>
-            </Form>
-          </div>
+                <div className="selectFile">
+                  <input
+                    type="file"
+                    name="source-file"
+                    accept="application/pdf"
+                    required
+                    className="text-[2rem] "
+                  />
+                </div>
+                <button
+                  disabled={navigation.state === "submitting"}
+                  type="submit"
+                  className="text-primary px-8 py-2 hover:bg-primary hover:text-white  bg-white text-[2rem]  border-none rounded-[1rem]"
+                >
+                  {navigation.state === "submitting" ? "Processing..." : "Submit"}
+                </button>
+              </Form>
+            </div>
         )}
-      </div>
+          </div>
     </div>
-  );
+      );
 }

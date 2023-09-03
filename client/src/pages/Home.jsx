@@ -14,7 +14,7 @@ export default function Home() {
             <Link to="/pdfsummary">
             <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] relative">
               <div className="circle absolute left-4  w-[40px] h-[40px] rounded-[50%] bg-white"></div>
-              <span className="ml-[5rem] text-white text-[2rem]">Pdf Summarizer</span>
+              <span className="ml-[5rem] text-white text-[2rem]">PDF Analyser</span>
             </button>
             </Link>
            <Link to="/video-summary">
@@ -26,12 +26,12 @@ export default function Home() {
            <Link to={"/study-buddy"}>
             <button className="flex items-center w-[17.5vw]  justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] relative">
               <div className="circle absolute left-4 w-[40px] h-[40px] rounded-[50%] bg-white"></div>
-              <span className="ml-[3rem] text-white text-[2rem]">Studdy Buddy </span>
+              <span className="ml-[3rem] text-white text-[2rem]">Study Buddy </span>
             </button>
            </Link>            
             <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] w-[42%] relative">
               <div className="circle absolute left-4 w-[40px] h-[40px] rounded-[50%] bg-white"></div>
-              <span className="ml-[1rem] text-white text-[2rem]">Not decided</span>
+              <span className="ml-[1rem] text-white text-[2rem]">Peer Review</span>
             </button>
           </div>
         </div>
