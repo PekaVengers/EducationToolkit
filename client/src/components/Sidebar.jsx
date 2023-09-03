@@ -19,11 +19,11 @@ export default function Sidebar() {
           </span>
         </button>
       </Link>
-      <Link to={"/peer"}>
+      <Link to={"/study-buddy"}>
         <button className="flex items-center justify-evenly bg-primary px-[1rem] py-[0.5rem] rounded-[2rem] w-[20vw] relative">
           <div className="circle absolute left-4 w-[40px] h-[40px] rounded-[50%] bg-white"></div>
           <span className="ml-[1rem] text-white text-[2rem]">
-            Peer Review
+            Study Buddy
           </span>
         </button>
       </Link>
