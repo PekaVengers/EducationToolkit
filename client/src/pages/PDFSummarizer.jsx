@@ -34,27 +34,22 @@ export default function PDFSummarizer() {
   return (<div className="videoContainer flex flex-1 bg-secondary">
     <Sidebar />
     <div className="right w-[75vw] flex flex-col justify-center items-center ">
-      {actionData ? (
+      {!actionData ? (
         <div className="container">
         <form>
           <input className="border-2 border-black py-2 px-3" type="text" value={question} onChange={handleChange} />
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-5" onClick={askQuestion} type="button">Ask</button>
         </form>
-        {
-          chatHistory?.map((chat, i) => {
-            return i % 2 == 0 ? (
-              <div key={i}>
+        
+              <div>
                 <span>User: </span>
-                <span>{chat[0][1]}</span>
+                <span>This is a sample question</span>
               </div>
-            ) : (
-              <div key={i}>
+              <div >
                 <span>Bot: </span>
-                <span>{chat[0][1]}</span>
+                <span>This is a sample answer</span>
               </div>
-            );
-          })
-        }
+      
       </div>
       ) : (
         <div className="rightContent w-[70%] bg-[#88C7E7] px-[4rem] py-[3rem] flex flex-col  rounded-[2rem]">
